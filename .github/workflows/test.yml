@@ -1,0 +1,33 @@
+name: test
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - '**'
+
+env:
+  BRANCH: ${{ github.head_ref }}
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Set documentation url status (PR)
+        uses: ouzi-dev/commit-status-updater@v1.0.4
+        with:
+          name: 'documemtation'
+          url: https://github.com/migom1030/github-actions
+          status: success
+        if: github.ref != 'refs/heads/main'
+
+      - name: Set documentation url status (master)
+        uses: ouzi-dev/commit-status-updater@v1.0.4
+        with:
+          name: 'documemtation'
+          url: https://github.com/migom1030/github-actions
+          status: success
+        if: github.ref == 'refs/heads/main'
