@@ -30,4 +30,4 @@ jobs:
           name: 'documemtation'
           url: https://github.com/migom1030/github-actions
           status: success
-        if: ${{ github.ref }} != 'refs/heads/master'
+        if: ${{ github.ref }} == 'refs/heads/master'
