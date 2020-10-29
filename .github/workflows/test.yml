@@ -29,5 +29,4 @@ jobs:
         with:
           name: 'documemtation'
           url: https://github.com/migom1030/github-actions
-          status: "${{ job.status }}"
         if: github.ref == 'refs/heads/main'
